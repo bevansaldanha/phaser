@@ -1,0 +1,29 @@
+.top-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  margin-left: 15%;
+  padding: 8px;
+  align-items: center;
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
+  height: 72px;
+  width: 70%;
+  background-color: #7b0202;
+  font-size: 36px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 2px 10px 20px rgba(67, 47, 191, 0.5);
+
+}
+
+.top-nav-bar__logo {
+  text-decoration: overline;
+  font-weight: 500;
+  font-size: 36px;
+  color: #111;
+  text-underline-position: auto;
+  margin-left: 24px;
+  cursor: pointer;
+}
