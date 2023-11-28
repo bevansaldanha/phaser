@@ -97,7 +97,7 @@ class MainScene extends Phaser.Scene {
 
     //this is the event listener for when the player types something and handles what will happen when they type something
     this.input.keyboard.on("keydown", (event) => {
-
+      event.preventDefault()
       if (event.code === 'Backspace' && this.currentWord.length > 0) {
         console.log(event.code.length);
         this.currentWord = this.currentWord.slice(0, this.currentWord.length - 1);
