@@ -26,11 +26,13 @@ class MainScene extends Phaser.Scene {
     super("scene-game");
     this.activeWords = [];
     this.calledWords = [];
+    this.lives = 5;
   }
 
   //preload assets, anything that needs to be loaded before the game starts (images, sprites, etc)
   preload() {
     this.load.image("bg", "assets/bg.jpg");
+    this.load.image("lives", "assets/heart.png");
     this.load.image('platform', 'assets/platform.png');
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 62,
@@ -69,6 +71,12 @@ class MainScene extends Phaser.Scene {
 
     //add background image
     this.add.image(0, 0, "bg").setOrigin(0, 0);
+
+    for (let i = 0; i< this.lives; i++) {
+      this[`livesImg${i}`] = this.add.image(50+i*10, 50, "lives")
+      
+    }
+
 
     //this is required for the physics engine to work (words can not be added to physics engine without this)
     //it is essentially a group of sprites that can be added to the physics engine and the words follow those sprites
@@ -148,6 +156,8 @@ class MainScene extends Phaser.Scene {
   //update assets, anything that needs to be updated every frame (images, sprites, etc), as well as game logic and physics
   update() {
 
+
+
     for (let i = 0; i < this.activeWords.length; i++) {
       this.activeWords[i].text.x = this.activeWords[i].sprite.x;
       this.activeWords[i].text.y = this.activeWords[i].sprite.y;
@@ -172,6 +182,11 @@ class MainScene extends Phaser.Scene {
         this.activeWords[i].text.destroy();
         this.activeWords.splice(i, 1);
         isColliding = false
+        this[`livesImg${this.lives-1}`].destroy()
+        this.lives -=1
+        if (this.lives === 0) {
+          console.log("Game over");
+        }
       }
     }
   }
