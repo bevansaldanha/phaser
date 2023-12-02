@@ -1,8 +1,12 @@
-import { BaseLevel } from "./BaseLevel100";
+import { BaseLevel } from "./BaseLevel";
 
 class Level2 extends BaseLevel {
   constructor() {
-    super("Level2", 5, 5, 50);
+    super("Level2", 3, 15, 75, "Level3");
+  }
+  preload() {
+    super.preload();
   }
 }
-export {Level2} 
+
+export {Level2}

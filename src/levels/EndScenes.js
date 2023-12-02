@@ -43,4 +43,4 @@ class LossScene extends Phaser.Scene {
   }
 }
 
-export {WinScene, LossScene}
+export { WinScene, LossScene}
